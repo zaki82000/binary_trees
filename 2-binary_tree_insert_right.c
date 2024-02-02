@@ -5,36 +5,37 @@
  * @parent: is a pointer to the node to insert the left-child in.
  * @value: is the value to store in the new node.
  * Return: return newnode.
-*/
+ */
 
 binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 {
-if (parent == NULL)
-{
-fprintf(stderr, "parent is NULL\n");
-return (NULL);
-}
 
-binary_tree_t *NewNode = (binary_tree_t *)malloc(sizeof(binary_tree_t));
+    if (!parent)
+    {
+        fprintf(stderr, "parent is NULL\n");
+        return (NULL);
+    }
 
-if (NewNode == NULL)
-{
-fprintf(stderr, "Memory allocation failed\n");
-return (NULL);
-}
+    binary_tree_t *NewNode = (binary_tree_t *)malloc(sizeof(binary_tree_t));
 
-NewNode->n = value;
-NewNode->left = NULL;
-NewNode->right = NULL;
-NewNode->parent = parent;
+    if (NewNode == NULL)
+    {
+        fprintf(stderr, "Memory allocation failed\n");
+        return (NULL);
+    }
 
-if (parent->right != NULL)
-{
-NewNode->right = parent->right;
-NewNode->right->parent = NewNode;
-}
+    NewNode->n = value;
+    NewNode->left = NULL;
+    NewNode->right = NULL;
+    NewNode->parent = parent;
 
-parent->right = NewNode;
+    if (parent->right != NULL)
+    {
+        NewNode->right = parent->right;
+        NewNode->right->parent = NewNode;
+    }
 
-return (NewNode);
+    parent->right = NewNode;
+
+    return (NewNode);
 }
