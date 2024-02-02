@@ -11,15 +11,15 @@ binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 
 binary_tree_t *newNode = (binary_tree_t *)malloc(sizeof(binary_tree_t));
 
-if (newNode == NULL)
-{
-fprintf(stderr, "Memory allocation failed\n");
-return (NULL);
-}
-
 if (parent == NULL)
 {
 fprintf(stderr, "parent is NULL\n");
+return (NULL);
+}
+
+if (newNode == NULL)
+{
+fprintf(stderr, "Memory allocation failed\n");
 return (NULL);
 }
 
