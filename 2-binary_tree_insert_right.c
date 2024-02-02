@@ -11,7 +11,6 @@ binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 {
 if (parent == NULL)
 {
-fprintf(stderr, "Parent is NULL\n");
 return (NULL);
 }
 
